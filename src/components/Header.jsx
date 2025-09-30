@@ -4,17 +4,20 @@ export default function Header() {
   return (
     <header style={{
       padding: "15px 30px",
-      backgroundColor: "#f1c40f",
+  backgroundColor: "#4f281a",
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between"
     }}>
-      <h1 style={{ margin: 0 }}>☕ Caramello Café</h1>
+  <h1 style={{ margin: 0, color: '#fff', fontFamily: "'Cavalier', sans-serif", letterSpacing: '2px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+  <img src="/images/cafecaramelologo.png" alt="Logo Café Caramello" style={{ height: '32px', width: 'auto', verticalAlign: 'middle' }} />
+    Central de Pedidos Café Caramello Guaíba
+  </h1>
       <nav>
-        <Link to="/" style={{ marginRight: "15px", textDecoration: "none", color: "#000" }}>Home</Link>
-        <Link to="/clientes" style={{ marginRight: "15px", textDecoration: "none", color: "#000" }}>Clientes</Link>
-        <Link to="/itens" style={{ marginRight: "15px", textDecoration: "none", color: "#000" }}>Itens</Link>
-        <Link to="/pedidos" style={{ textDecoration: "none", color: "#000" }}>Pedidos</Link>
+  <Link to="/" style={{ marginRight: "15px", textDecoration: "none", color: "#fff", fontFamily: 'Rubik, sans-serif' }}>Home</Link>
+  <Link to="/cadastro" style={{ marginRight: "15px", textDecoration: "none", color: "#fff", fontFamily: 'Rubik, sans-serif' }}>Cadastro</Link>
+  <Link to="/entrar" style={{ marginRight: "15px", textDecoration: "none", color: "#fff", fontFamily: 'Rubik, sans-serif' }}>Entrar</Link>
+  <Link to="/pedidos" style={{ textDecoration: "none", color: "#fff", fontFamily: 'Rubik, sans-serif' }}>Pedidos</Link>
       </nav>
     </header>
   );
