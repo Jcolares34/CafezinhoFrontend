@@ -1,10 +1,8 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import CafeCard from "../components/CafeCard";
 import Header from "../components/Header";
 
-// Adicione a imagem em public/images/cafecaramello-bg.jpg (ou .png)
 
 export default function Home() {
 
@@ -45,7 +43,30 @@ export default function Home() {
           </p>
         </div>
       </div>
-  <div style={{ width: '100%', minHeight: '60vh', background: '#fff', display: 'flex', flexDirection: 'row', alignItems: 'flex-start', padding: '0', marginTop: 0 }}>
+      <div style={{ width: '100%', minHeight: '60vh', background: '#fff', padding: '0', marginTop: 0 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 24, paddingRight: 32 }}>
+          <h2 style={{
+            fontWeight: 700,
+            fontSize: 28,
+            color: '#4f281a',
+            letterSpacing: 1,
+            marginTop: 48,
+            marginBottom: 0,
+            marginLeft: 85
+          }}>Tipos</h2>
+          <h2 style={{
+            fontWeight: 700,
+            fontSize: 28,
+            color: '#4f281a',
+            letterSpacing: 1,
+            marginTop: 48,
+            marginBottom: 0,
+            marginRight: 0,
+            flex: 1,
+            textAlign: 'center'
+          }}>Produtos em destaque</h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
         {/* Sidebar de filtros */}
         <aside style={{
           width: 260,
@@ -64,33 +85,186 @@ export default function Home() {
           justifyContent: 'flex-start',
           marginTop: 48
         }}>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 20, marginBottom: 18, color: '#222' }}>FILTROS</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 16 }}>PROMO</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 16 }}>PRONTA ENTREGA</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 16 }}>DISCO DE VINIL</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 16 }}>RARIDADES</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 16 }}>ARTISTAS</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 16 }}>PRIDE - URBAN OUTFITTERS</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 16 }}>CDS</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 16 }}>FITA CASSETE</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 16 }}>MERCHANDISING</li>
-            <li style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 700, fontSize: 18, marginBottom: 0 }}>REVISTAS</li>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginTop: 0 }}>
+            <li>
+              <button
+                onClick={() => alert('Filtro: Creme de café')}
+                style={{
+                  fontFamily: 'Rubik, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 18,
+                  marginBottom: 25,
+                  paddingLeft: 32,
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#4f281a',
+                  width: '100%',
+                  textAlign: 'left',
+                  transition: 'color 0.2s, background-color 0.2s',
+                  padding: '8px 32px',
+                  ':hover': {
+                    color: '#2a1208',
+                    backgroundColor: 'rgba(79, 40, 26, 0.05)'
+                  }
+                }}>
+                Creme de café
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => alert('Filtro: Linha Zero')}
+                style={{
+                  fontFamily: 'Rubik, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 18,
+                  marginBottom: 25,
+                  paddingLeft: 32,
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#4f281a',
+                  width: '100%',
+                  textAlign: 'left',
+                  transition: 'color 0.2s, background-color 0.2s',
+                  padding: '8px 32px',
+                  ':hover': {
+                    color: '#2a1208',
+                    backgroundColor: 'rgba(79, 40, 26, 0.05)'
+                  }
+                }}>
+                Linha Zero
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => alert('Filtro: Linha Black')}
+                style={{
+                  fontFamily: 'Rubik, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 18,
+                  marginBottom: 25,
+                  paddingLeft: 32,
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#4f281a',
+                  width: '100%',
+                  textAlign: 'left',
+                  transition: 'color 0.2s, background-color 0.2s',
+                  padding: '8px 32px',
+                  ':hover': {
+                    color: '#2a1208',
+                    backgroundColor: 'rgba(79, 40, 26, 0.05)'
+                  }
+                }}>
+                Linha Black
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => alert('Filtro: Sazonais Verão')}
+                style={{
+                  fontFamily: 'Rubik, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 18,
+                  marginBottom: 25,
+                  paddingLeft: 32,
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#4f281a',
+                  width: '100%',
+                  textAlign: 'left',
+                  transition: 'color 0.2s, background-color 0.2s',
+                  padding: '8px 32px',
+                  ':hover': {
+                    color: '#2a1208',
+                    backgroundColor: 'rgba(79, 40, 26, 0.05)'
+                  }
+                }}>
+                Sazonais Verão
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => alert('Filtro: Sazonais Inverno')}
+                style={{
+                  fontFamily: 'Rubik, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 18,
+                  marginBottom: 25,
+                  paddingLeft: 32,
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#4f281a',
+                  width: '100%',
+                  textAlign: 'left',
+                  transition: 'color 0.2s, background-color 0.2s',
+                  padding: '8px 32px',
+                  ':hover': {
+                    color: '#2a1208',
+                    backgroundColor: 'rgba(79, 40, 26, 0.05)'
+                  }
+                }}>
+                Sazonais Inverno
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => alert('Filtro: Academia')}
+                style={{
+                  fontFamily: 'Rubik, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 18,
+                  marginBottom: 25,
+                  paddingLeft: 32,
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#4f281a',
+                  width: '100%',
+                  textAlign: 'left',
+                  transition: 'color 0.2s, background-color 0.2s',
+                  padding: '8px 32px',
+                  ':hover': {
+                    color: '#2a1208',
+                    backgroundColor: 'rgba(79, 40, 26, 0.05)'
+                  }
+                }}>
+                Academia
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => alert('Filtro: Frutais')}
+                style={{
+                  fontFamily: 'Rubik, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 18,
+                  marginBottom: 25,
+                  paddingLeft: 32,
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#4f281a',
+                  width: '100%',
+                  textAlign: 'left',
+                  transition: 'color 0.2s, background-color 0.2s',
+                  padding: '8px 32px',
+                  ':hover': {
+                    color: '#2a1208',
+                    backgroundColor: 'rgba(79, 40, 26, 0.05)'
+                  }
+                }}>
+                Frutais
+              </button>
+            </li>
           </ul>
         </aside>
         {/* Grid de produtos */}
         <div style={{ flex: 1, marginTop: 0 }}>
-          <h2 style={{
-            fontWeight: 700,
-            fontSize: 28,
-            marginBottom: 24,
-            color: '#4f281a',
-            letterSpacing: 1,
-            marginTop: 0,
-            textAlign: 'center',
-            width: '100%',
-            gridColumn: '1 / -1'
-          }}>Produtos em destaque</h2>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
@@ -145,6 +319,7 @@ export default function Home() {
                 >Adicionar ao carrinho</button>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>
