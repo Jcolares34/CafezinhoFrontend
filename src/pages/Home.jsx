@@ -210,7 +210,113 @@ export default function Home() {
             fontSize: '16px',
             color: '#4f281a'
           }}>
-            {itens.map(item => (
+            {itens.filter(item => item.nome !== 'Pote 800ml').map(item => (
+              <option key={item.id} value={item.nome}>{item.nome}</option>
+            ))}
+          </select>
+        </div>
+        <div style={{ display: 'flex', gap: '12px', width: '100%' }}>
+          <button 
+            onClick={() => setModalOpen(false)}
+            style={{
+              flex: 1,
+              padding: '10px',
+              border: '2px solid #4f281a',
+              borderRadius: '6px',
+              background: 'transparent',
+              color: '#4f281a',
+              cursor: 'pointer',
+              fontFamily: 'Rubik, sans-serif',
+              fontWeight: 600
+            }}
+          >Cancelar</button>
+          <button 
+            onClick={handleConfirmAddToCart}
+            style={{
+              flex: 1,
+              padding: '10px',
+              border: 'none',
+              borderRadius: '6px',
+              background: '#4f281a',
+              color: '#fff',
+              cursor: 'pointer',
+              fontFamily: 'Rubik, sans-serif',
+              fontWeight: 600
+            }}
+          >Confirmar</button>
+        </div>
+      </div>
+    </div>
+  ) : null;
+
+  const ModalBaldes = () => modalOpen && selectedProduct?.nome === 'Baldes' ? (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: 1000
+    }}>
+      <div style={{
+        backgroundColor: '#fff',
+        padding: '24px',
+        borderRadius: '12px',
+        width: '300px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '16px'
+      }}>
+        <h3 style={{ margin: 0, color: '#4f281a', fontFamily: 'Rubik, sans-serif' }}>
+          {selectedProduct?.nome}
+        </h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <button 
+            onClick={() => setQuantity(q => Math.max(1, q - 1))}
+            style={{
+              background: '#4f281a',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '6px',
+              width: '32px',
+              height: '32px',
+              fontSize: '20px',
+              cursor: 'pointer'
+            }}
+          >-</button>
+          <span style={{ fontSize: '20px', color: '#4f281a', fontFamily: 'Rubik, sans-serif' }}>
+            {quantity}
+          </span>
+          <button 
+            onClick={() => setQuantity(q => q + 1)}
+            style={{
+              background: '#4f281a',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '6px',
+              width: '32px',
+              height: '32px',
+              fontSize: '20px',
+              cursor: 'pointer'
+            }}
+          >+</button>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
+          <label style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 600, color: '#4f281a' }}>Escolha o sabor:</label>
+          <select style={{
+            padding: '8px',
+            borderRadius: '6px',
+            border: '1.5px solid #e0d6c8',
+            fontFamily: 'Rubik, sans-serif',
+            fontSize: '16px',
+            color: '#4f281a'
+          }}>
+            {itens.filter(item => item.nome !== 'Pote 800ml').map(item => (
               <option key={item.id} value={item.nome}>{item.nome}</option>
             ))}
           </select>
@@ -258,6 +364,7 @@ export default function Home() {
     <>
       <Modal />
       <ModalPotes800ml />
+      <ModalBaldes />
       <Header />
       <div style={{
         width: '100%',
@@ -726,7 +833,7 @@ export default function Home() {
           {activeFilter === 'Baldes' && (
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(1, 1fr)',
+              gridTemplateColumns: 'repeat(4, 1fr)',
               gap: '32px',
               padding: '0 32px 32px 0',
             }}>
@@ -752,7 +859,7 @@ export default function Home() {
                   marginBottom: 16,
                 }}>
                   <img 
-                    src="/images/baldes.png"
+                    src="/images/balde.jpeg"
                     alt="Baldes"
                     style={{
                       width: '100%',
