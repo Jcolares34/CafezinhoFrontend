@@ -1,0 +1,64 @@
+/* Estilos compartilhados para formulários */
+
+.form-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 16px 32px;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #95553e;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.form-container label {
+  font-weight: 500;
+}
+
+.form-container input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-container button {
+  background: #95553e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.form-container hr {
+  margin: 18px 0 0 0;
+}
+
+.form-container p {
+  font-size: 13px;
+  color: #444;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-container a {
+  color: #2340a0;
+}
+
+.message-error {
+  font-size: 20px !important;
+  color: black !important;
+  margin-top: 10px;
+}

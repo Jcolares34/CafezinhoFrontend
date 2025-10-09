@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
-
+import { API_BASE_URL } from "../config/api";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [activeFilter, setActiveFilter] = useState('Creme de Café'); // Define Creme de Café como padrão
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleAddToCart = (item) => {
     setSelectedProduct(item);
@@ -35,18 +38,32 @@ export default function Home() {
     }
   };
 
-  // Produtos fictícios para exibição
-  const itens = [
-    { id: 1, nome: "Tradicional", preco: 35.00 },
-    { id: 2, nome: "Amarula", preco: 35.00 },
-    { id: 3, nome: "Black 50%", preco: 35.00 },
-    { id: 4, nome: "Black 75%", preco: 35.00 },
-    { id: 5, nome: "Baunilha", preco: 35.00 },
-    { id: 6, nome: "Espresso", preco: 35.00 },
-    { id: 7, nome: "Caramelo", preco: 35.00 },
-    { id: 8, nome: "Menta", preco: 35.00 },
-    { id: 9, nome: "Pote 800ml", preco: 70.00 }, // Novo item
-  ];
+  useEffect(() => {
+    // Fetch products from the backend
+    axios.get(`${API_BASE_URL}/items`)
+      .then(response => {
+        setProducts(response.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Error fetching products:", err);
+        setError("Failed to load products.");
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    // Garante que a seção Creme de Café esteja aberta ao carregar o site
+    setActiveFilter('Creme de Café');
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   const Modal = () => modalOpen ? (
     <div style={{
@@ -210,7 +227,7 @@ export default function Home() {
             fontSize: '16px',
             color: '#4f281a'
           }}>
-            {itens.filter(item => item.nome !== 'Pote 800ml').map(item => (
+            {products.filter(item => item.nome !== 'Pote 800ml').map(item => (
               <option key={item.id} value={item.nome}>{item.nome}</option>
             ))}
           </select>
@@ -316,7 +333,7 @@ export default function Home() {
             fontSize: '16px',
             color: '#4f281a'
           }}>
-            {itens.filter(item => item.nome !== 'Pote 800ml').map(item => (
+            {products.filter(item => item.nome !== 'Pote 800ml').map(item => (
               <option key={item.id} value={item.nome}>{item.nome}</option>
             ))}
           </select>
@@ -354,11 +371,6 @@ export default function Home() {
       </div>
     </div>
   ) : null;
-
-  useEffect(() => {
-    // Garante que a seção Creme de Café esteja aberta ao carregar o site
-    setActiveFilter('Creme de Café');
-  }, []);
 
   return (
     <>
@@ -672,7 +684,7 @@ export default function Home() {
                 gap: '32px',
                 padding: '0 32px 32px 0',
               }}>
-                {itens.map((item, idx) => (
+                {products.map((item, idx) => (
                   <div key={item.id} style={{
                     background: '#faf7f3',
                     border: '1.5px solid #e0d6c8',
@@ -774,7 +786,7 @@ export default function Home() {
               gap: '32px',
               padding: '0 32px 32px 0',
             }}>
-              {itens.filter(item => item.nome === "Pote 800ml").map(item => (
+              {products.filter(item => item.nome === "Pote 800ml").map(item => (
                 <div key={item.id} style={{
                   background: '#faf7f3',
                   border: '1.5px solid #e0d6c8',
