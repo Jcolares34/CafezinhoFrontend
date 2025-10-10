@@ -22,22 +22,26 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Form submitted", formData); // Log para verificar o envio do formulário
     setMessage("Loading...");
 
     axios
       .post(`${API_BASE_URL}/auth/login`, formData)
       .then((response) => {
-        const { token, user } = response.data; // Extrai o token e o objeto user da resposta
+        const { token, email: userEmail, nomeUsuario } = response.data; // Ajusta para usar 'nomeUsuario' conforme o exemplo fornecido
+
+        // Salvar token no localStorage
         localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(user)); // Armazena os dados do usuário como string JSON
-        console.log("Stored user data:", user); // Log para depuração
-        setMessage("Login successful!");
-        navigate("/"); // Redireciona para a página inicial modificada
+
+        // Salvar dados do usuário no localStorage
+        localStorage.setItem("user", JSON.stringify({ email: userEmail, nomeUsuario }));
+
+        // Redirecionar para /home
+        navigate("/home");
       })
-      .catch((error) => {
-        setMessage(
-          error.response?.data?.message || "Failed to log in. Please try again."
-        );
+      .catch((err) => {
+        console.error("Erro ao fazer login:", err);
+        setMessage("Erro ao fazer login. Verifique suas credenciais.");
       });
   };
 
@@ -109,7 +113,7 @@ export default function Login() {
             required
           />
           <button
-            type="submit"
+            onClick={handleSubmit} // Altera para disparar a função diretamente no clique
             style={{
               background: "#95553e",
               color: "#fff",

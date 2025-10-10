@@ -16,9 +16,10 @@ export default function Header({ hideAuthButtons = false }) {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("usersArray"); // Remove o array de usuários
     setIsLoggedIn(false);
     setMenuVisible(false);
-    window.location.href = "http://localhost:3000/home"; // Redirect to the default home page
+    window.location.href = "http://localhost:3000/home"; // Redireciona para a página inicial padrão
   };
 
   return (

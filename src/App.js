@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import Home from "./pages/Home";
 import Clientes from "./pages/Clientes";
 import Login from "./pages/Login";
@@ -8,6 +9,10 @@ import HomeLogged from "./pages/HomeLogged";
 import Conta from "./pages/Conta";
 
 function App() {
+  useEffect(() => {
+    localStorage.removeItem("usersArray"); // Remove o array de usuários ao carregar ou atualizar a página
+  }, []);
+
   return (
     <Router>
       <Routes>
