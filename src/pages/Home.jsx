@@ -708,14 +708,36 @@ export default function Home() {
                     }}>
                       <img 
                         src={`/images/${
-                          idx === 0 ? 'tradicional.png' :
-                          idx === 1 ? 'amarula.png' :
-                          idx === 2 ? 'b50.png' :
-                          idx === 3 ? 'b75.png' :
-                          idx === 4 ? 'baunilha.png' :
-                          idx === 5 ? 'espresso.png' :
-                          idx === 6 ? 'caramelo.png' :
-                          'menta.png'
+                          idx === 0 ? 'amarula.png' :
+                          idx === 1 ? 'baunilha.png' :
+                          idx === 2 ? 'caramelo.png' :
+                          idx === 3 ? 'menta.png' :
+                          idx === 4 ? 'morango.png' :
+                          idx === 5 ? 'rum.png' :
+                          idx === 6 ? 'paçoca.png' :
+                          idx === 7 ? 'banana.png' :
+                          idx === 8 ? 'frutas.png' :
+                          idx === 9 ? 'limão.png' :
+                          idx === 10 ? 'arábica.png' :
+                          idx === 11 ? 'chocolate.png' :
+                          idx === 12 ? 'panetone.png' :
+                          idx === 13 ? 'b50.png' :
+                          idx === 14 ? 'b75.png' :
+                          idx === 15 ? 'descafeinado.png' :
+                          idx === 16 ? 'paçoca.png' :
+                          idx === 17 ? 'paçoca.png' :
+                          idx === 18 ? 'paçoca.png' :
+                          idx === 19 ? 'paçoca.png' :
+                          idx === 20 ? 'paçoca.png' :
+                          idx === 21 ? 'paçoca.png' :
+                          idx === 22 ? 'paçoca.png' :
+                          idx === 23 ? 'paçoca.png' :
+                          idx === 24 ? 'paçoca.png' :
+                          idx === 25 ? 'paçoca.png' :
+                          idx === 26 ? 'paçoca.png' :
+                          idx === 27 ? 'paçoca.png' :
+                          idx === 28 ? 'tradicional.png' :
+                          'espresso.png'
                         }`}
                         alt={item.nome}
                         style={{

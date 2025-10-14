@@ -7,6 +7,9 @@ import Pedidos from "./pages/Pedidos";
 import Itens from "./pages/Itens";
 import HomeLogged from "./pages/HomeLogged";
 import Conta from "./pages/Conta";
+import AlterarSenha from "./pages/AlterarSenha";
+import EditarDados from "./pages/EditarDados";
+import MeusPedidos from "./pages/MeusPedidos";
 
 function App() {
   useEffect(() => {
@@ -23,6 +26,9 @@ function App() {
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/itens" element={<Itens />} />
         <Route path="/conta" element={<Conta />} />
+        <Route path="/conta/alterarsenha" element={<AlterarSenha />} />
+        <Route path="/conta/editardados" element={<EditarDados />} />
+        <Route path="/conta/meuspedidos" element={<MeusPedidos />} />
       </Routes>
     </Router>
   );
